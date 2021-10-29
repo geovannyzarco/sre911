@@ -15,6 +15,11 @@ class CreateEntidadesTable extends Migration
     {
         Schema::create('entidades', function (Blueprint $table) {
             $table->id();
+            $table->string('entity');
+            $table->string('id_ws');
+            $table->string('user');
+            $table->string('pass');
+            $table->string('url_ws');
             $table->timestamps();
         });
     }

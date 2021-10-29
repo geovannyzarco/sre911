@@ -18,7 +18,6 @@ class CreateTurnosTable extends Migration
             $table->string('nombre');
             $table->time('hora_entrada');
             $table->time('hora_salida');
-            $table->integer('extendido');
             $table->timestamps();
         });
     }

@@ -15,6 +15,13 @@ class CreateXmlEnviadosTable extends Migration
     {
         Schema::create('xml_enviados', function (Blueprint $table) {
             $table->id();
+            $table->string('xml_send');
+            $table->string('xml_response');
+            $table->integer('id_evento');
+            $table->integer('estado');
+            $table->string('numero_secuencia');
+            $table->string('time_send');
+            $table->string('time_response');
             $table->timestamps();
         });
     }

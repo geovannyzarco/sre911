@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTiposEventosTable extends Migration
+class AddOniToEventos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTiposEventosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_eventos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo_eventos');
-            $table->timestamps();
+        Schema::table('eventos', function (Blueprint $table) {
+            $table->string('oni')->unsigned();
+            $table->foreign('oni')->references('oni')->on('users')->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateTiposEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_eventos');
+        Schema::table('eventos', function (Blueprint $table) {
+            $table->dropColumn('oni');
+        });
     }
 }
